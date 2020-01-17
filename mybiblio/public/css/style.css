@@ -1,0 +1,6 @@
+header {
+    height: 450px;
+    background-image: url(../img/livre.jpg);
+    background-size: cover;
+    background-position: 0 center;
+}
