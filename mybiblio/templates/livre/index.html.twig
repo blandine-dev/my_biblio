@@ -3,16 +3,18 @@
 {% block title %}Livre index{% endblock %}
 
 {% block body %}
-    <h1>Livre index</h1>
-
-    <table class="table">
+<div class="container">
+    
+<div class="row justify-content-center">
+    <div class="col-12 my-5"><h1 class="text-center">Liste des prêts de livre en cours</h1></div>
+    <table class="table col-12 my- mx-">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
-                <th>Datepret</th>
-                <th>Dateretour</th>
-                <th>actions</th>
+                <th>Date de prêt</th>
+                <th>Date de retour</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,8 +25,8 @@
                 <td>{{ livre.datepret ? livre.datepret|date('Y-m-d') : '' }}</td>
                 <td>{{ livre.dateretour ? livre.dateretour|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('livre_show', {'id': livre.id}) }}">show</a>
-                    <a href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
+                    <a href="{{ path('livre_show', {'id': livre.id}) }}" class="btn btn-danger mb-5">Voir</a>
+                    <a href="{{ path('livre_edit', {'id': livre.id}) }}" class="btn btn-success mb-5">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -35,5 +37,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('livre_new') }}">Create new</a>
+    
+        <a href="{{ path('livre_new') }}" class="btn btn-dark">Nouveau prêt</a>
+   
+</div>
+</div>
 {% endblock %}
