@@ -3,43 +3,37 @@
 {% block title %}Livre index{% endblock %}
 
 {% block body %}
-<div class="container">
-    
-<div class="row justify-content-center">
-    <div class="col-12 my-5"><h1 class="text-center">Liste des prêts de livre en cours</h1></div>
-    <table class="table col-12 my- mx-">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Date de prêt</th>
-                <th>Date de retour</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for livre in livres %}
-            <tr>
-                <td>{{ livre.id }}</td>
-                <td>{{ livre.titre }}</td>
-                <td>{{ livre.datepret ? livre.datepret|date('Y-m-d') : '' }}</td>
-                <td>{{ livre.dateretour ? livre.dateretour|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('livre_show', {'id': livre.id}) }}" class="btn btn-danger mb-5">Voir</a>
-                    <a href="{{ path('livre_edit', {'id': livre.id}) }}" class="btn btn-success mb-5">Editer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    
-        <a href="{{ path('livre_new') }}" class="btn btn-dark">Nouveau prêt</a>
-   
-</div>
+<div class="container mt-5">
+    <h1 class="text-center my-5">Liste des prêts de livres en cours</h1>
+    <a href="{{ path('livre_new') }}" class="btn btn-secondary mb-5">Nouveau prêt</a>
+        <table class="table mt-5">
+            <thead>
+                <tr class="bandeau">
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Date de prêt</th>
+                    <th>Date de retour</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for livre in livres %}
+                <tr>
+                    <td>{{ livre.id }}</td>
+                    <td>{{ livre.titre }}</td>
+                    <td>{{ livre.datepret ? livre.datepret|date('Y-m-d') : '' }}</td>
+                    <td>{{ livre.dateretour ? livre.dateretour|date('Y-m-d') : '' }}</td>
+                    <td>
+                        <a href="{{ path('livre_show', {'id': livre.id}) }}" class="btn btn-secondary">Voir</a>
+                        <a href="{{ path('livre_edit', {'id': livre.id}) }}" class="btn btn-secondary ml-5">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>       
 </div>
 {% endblock %}

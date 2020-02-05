@@ -10,10 +10,14 @@
     </head>
     <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            <span class='fa fa-book'></span>
-            MY BIBLIO
-        </a>
+        <a class="navbar-brand" href="{{ path("livre_index")}}"><span class='fa fa-book'></span> MY BIBLIO</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{{ path("livre_index")}}">Accueil</a>
+                <a class="nav-item nav-link" href="{{ path("lecteur_index")}}">Lecteurs</a>
+            </div>
+        </div>
     </nav>
     <header></header>
         {% block body %}{% endblock %}

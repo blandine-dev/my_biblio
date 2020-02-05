@@ -1,8 +1,15 @@
 body {
-    height: 450px;
+    height: 750px;
     background-image: url(../img/livre.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0 center;
+    background-position: center;
 }
 
+h1 {
+    color: white;
+}
+.bandeau {
+    background-color:#5a6268;
+    color: white;
+}

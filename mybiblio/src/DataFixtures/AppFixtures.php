@@ -24,7 +24,7 @@ class AppFixtures extends Fixture
             array_push($tabObjetsGenre, $genre);
         }
      
-     
+      
         $manager->flush();
            
     }

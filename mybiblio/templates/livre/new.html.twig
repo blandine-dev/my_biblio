@@ -3,11 +3,17 @@
 {% block title %}New Livre{% endblock %}
 
 {% block body %}
-    <h1>Entrer un nouveau livre</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 my-5"><h1 class='text-center'>Nouveau prêt</h1></div>
 
-    {{ include('livre/_form.html.twig') }}
+            {{ include('livre/_form.html.twig') }}
+           
+    </div>
+</div>
+<div class="row justify-content-center">
+         <a href="{{ path('livre_index') }}" class="btn btn-dark">Retour à la liste des prêts</a>
+</div>       
+    
 
-    <button type="button" class="btn btn-dark">
-        <a href="{{ path('livre_index') }}">Retour à la liste des prêts</a>
-    </button>
 {% endblock %}
