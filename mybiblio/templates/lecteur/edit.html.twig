@@ -3,11 +3,13 @@
 {% block title %}Edit Lecteur{% endblock %}
 
 {% block body %}
-    <h1>Edit Lecteur</h1>
-
-    {{ include('lecteur/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('lecteur_index') }}">back to list</a>
-
-    {{ include('lecteur/_delete_form.html.twig') }}
+<div class="container">
+     <h2 class="text-center my-5"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        Modifier un Lecteur</h2>    
+    <div class="modifier col-12">
+        {{ include('lecteur/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+         {# {{ include('lecteur/_delete_form.html.twig') }} #}
+        <a href="{{ path('lecteur_index') }}" class="btn btn-success ml-3">Retour</a>
+    </div>
+</div>
 {% endblock %}

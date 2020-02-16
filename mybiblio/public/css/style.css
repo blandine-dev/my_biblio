@@ -1,15 +1,40 @@
 body {
-    height: 750px;
-    background-image: url(../img/livre.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    font-family: 'Nunito Sans', sans-serif; 
+    /* font-family: 'Montserrat Alternates', sans-serif; */
+}
+header {
+    display: flex;
+    justify-content: flex-end;
 }
 
-h1 {
-    color: white;
+h1, h2 {
+   
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 .bandeau {
-    background-color:#5a6268;
-    color: white;
+    background-color: grey;
+    border-radius: 5px;
+    color: black;
+}
+
+i {
+    color:#28a745;
+}
+
+.navbar-nav {
+    margin-left: 80%;
+    
+}
+
+em {
+    font-family: 'Sacramento', cursive;
+    font-size: 1.5rem;
+}
+
+.nouveau {
+    margin-left: 38rem;
+}
+
+.modifier {
+    margin-left: 17rem;
 }

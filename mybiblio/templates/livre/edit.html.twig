@@ -4,16 +4,17 @@
 
 {% block body %}
 <div class="container">
+<h2 class="text-center"> <i class='fa fa-book'></i> Modifier le prêt</h2>
+<div class="row">
+    {{ include('livre/_delete_form.html.twig') }}
+    <a href="{{ path('livre_index') }}" class="btn btn-dark ml-3">Retour</a>
+</div>
     <div class="column justify-content-center">
-        <div class="col-12 mt-5 my-5"><h1>Modifier le prêt</h1></div>
-
-        {{ include('livre/_form.html.twig', {'button_label': 'Renouveler'}) }}
-        {{ include('livre/_delete_form.html.twig') }}
+        
+         {{ include('livre/_form.html.twig', {'button_label': 'Renouveler'}) }}
     </div>
 
-<div class="row justify-content-center">
-    <a href="{{ path('livre_index') }}" class="btn btn-secondary">Retour</a>
-</div>
+
 </div>
     
   

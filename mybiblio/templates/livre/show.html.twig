@@ -3,33 +3,37 @@
 {% block title %}Livre{% endblock %}
 
 {% block body %}
-    <h1>Livre</h1>
+<div class="container">
+    <h2 class="text-center mt-5 "><i class='fa fa-book'></i> Livre</h2>
     
-    <table class="table">
+    <table class="table table-borderless mt-5">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ livre.id }}</td>
-            </tr>
-            <tr>
+            <tr class="bandeau">
                 <th>Titre</th>
                 <td>{{ livre.titre }}</td>
             </tr>
             <tr>
-                <th>Datepret</th>
-                <td>{{ livre.datepret ? livre.datepret|date('Y-m-d') : '' }}</td>
+                <th>Date de prêt</th>
+                <td>{{ livre.datepret ? livre.datepret|date('d-m-y') : '' }}</td>
             </tr>
             <tr>
-                <th>Dateretour</th>
-                <td>{{ livre.dateretour ? livre.dateretour|date('Y-m-d') : '' }}</td>
+                <th>Date de retour</th>
+                <td>{{ livre.dateretour ? livre.dateretour|date('d-m-y') : '' }}</td>
             </tr>
+            <tr>
+                <th>Lecteur</th>
+                <td>{{ livre.lecteur.nom }} {{ livre.lecteur.prenom }}</td> 
+            </tr>
+            {# <tr>
+                <th>Id</th> 
+                <td>{{ livre.id }}</td>
+            </tr> #}
         </tbody>
     </table>
-
-    <a href="{{ path('livre_index') }}">back to list</a>
-
-    <a href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
+<div class="row mt-5">
+    <a href="{{ path('livre_index') }}" class="btn btn-success ml-3 mr-3">Retour</a>
+    <a href="{{ path('livre_edit', {'id': livre.id}) }}" class="btn btn-success mr-3">Modifier</a>
 
     {{ include('livre/_delete_form.html.twig') }}
-
+</div>
 {% endblock %}

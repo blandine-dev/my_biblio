@@ -3,9 +3,17 @@
 {% block title %}New Lecteur{% endblock %}
 
 {% block body %}
-    <h1>Create new Lecteur</h1>
-
-    {{ include('lecteur/_form.html.twig') }}
-
-    <a href="{{ path('lecteur_index') }}">back to list</a>
+<div class="container">
+        
+    <div class="row justify-content-center">
+        <div class="col-12 my-5">
+        <h2 class='text-center'><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            Nouveau Lecteur</h2>
+        </div>
+        <div class="nouveau col-12 "> 
+            {{ include('lecteur/_form.html.twig') }}
+            <a href="{{ path('lecteur_index') }}" class="btn btn-success ml-3">Retour</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

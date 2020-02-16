@@ -28,10 +28,16 @@ class Lecteur
      */
     private $prenom;
 
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Livre", mappedBy="lecteur")
      */
     private $livres;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $adresse;
 
     public function __construct()
     {
@@ -94,6 +100,18 @@ class Lecteur
                 $livre->setLecteur(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(?string $adresse): self
+    {
+        $this->adresse = $adresse;
 
         return $this;
     }

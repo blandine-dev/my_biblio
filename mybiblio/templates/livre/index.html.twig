@@ -3,29 +3,32 @@
 {% block title %}Livre index{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1 class="text-center my-5">Liste des prêts de livres en cours</h1>
-    <a href="{{ path('livre_new') }}" class="btn btn-secondary mb-5">Nouveau prêt</a>
-        <table class="table mt-5">
+<div class="container">
+    <h1 class="text-center mt-3"><i class='fa fa-book'></i> Liste des prêts de livres</h1>
+    <a href="{{ path('livre_new') }}" class="btn btn-danger mb-5">Nouveau prêt</a>
+        <table class="table table-hover table-borderless">
             <thead>
                 <tr class="bandeau">
-                    <th>Id</th>
+                    {# <th>Id</th> #}
                     <th>Titre</th>
                     <th>Date de prêt</th>
                     <th>Date de retour</th>
+                    <th>Lecteur</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
             {% for livre in livres %}
                 <tr>
-                    <td>{{ livre.id }}</td>
+                    {# <td>{{ livre.id }}</td> #}
                     <td>{{ livre.titre }}</td>
-                    <td>{{ livre.datepret ? livre.datepret|date('Y-m-d') : '' }}</td>
-                    <td>{{ livre.dateretour ? livre.dateretour|date('Y-m-d') : '' }}</td>
+                    <td>{{ livre.datepret ? livre.datepret|date('d-m-y') : '' }}</td>
+                    <td>{{ livre.dateretour ? livre.dateretour|date('d-m-y') : '' }}</td>
+                   {# pour afficher le nom du lecteur dans ma liste de prêts #}
+                    <td>{{ livre.lecteur.nom }} {{ livre.lecteur.prenom }}</td>
                     <td>
-                        <a href="{{ path('livre_show', {'id': livre.id}) }}" class="btn btn-secondary">Voir</a>
-                        <a href="{{ path('livre_edit', {'id': livre.id}) }}" class="btn btn-secondary ml-5">Modifier</a>
+                        <a href="{{ path('livre_show', {'id': livre.id}) }}" class="btn btn-dark">Voir</a>
+                        <a href="{{ path('livre_edit', {'id': livre.id}) }}" class="btn btn-success ml-5">Modifier</a>
                     </td>
                 </tr>
             {% else %}
@@ -34,6 +37,7 @@
                 </tr>
             {% endfor %}
             </tbody>
-        </table>       
+        </table>      
 </div>
+
 {% endblock %}
